@@ -211,6 +211,7 @@ img.non-tiles-thumbnail {
   .topic-title {
     font-size: 1.143em;
     padding: 0 0 0 0;
+    font-weight: 800;
 
     .link-top-line {
       flex: 1 1 auto;
@@ -482,7 +483,7 @@ img.non-tiles-thumbnail {
   }
 
   .topic-title {
-    font-weight: 700;
+    font-weight: 800;
   }
 
   .topic-thumbnail {
@@ -551,6 +552,8 @@ button.list-button {
   }
 
   &.has-liked svg,
+  &.has-liked,
+  &.has-liked .d-icon-heart,
   &.topic-like:not([disabled]):hover {
     color: var(--love);
   }
