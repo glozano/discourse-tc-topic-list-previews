@@ -1,3 +1,8 @@
+tiles_settings_heading:
+  type: heading
+  default: ""
+  description:
+    en: "Tile Layout"
 topic_list_tiles_topic_lists:
   type: list
   default: latest|new|unread|top|tag|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|activity-topics-mobile|activity-portfolio-mobile
@@ -15,11 +20,27 @@ topic_list_tiles_tags:
   default: ""
   description:
     en: "The tags that will be styled with tiles format."
+topic_list_tiles_larger_featured_tiles:
+  default: true
+  type: bool
+  description:
+    en: "Make the tiles with featured tags larger"
+topic_list_tiles_wide_format:
+  default: false
+  type: bool
+  description:
+    en: "Use wide format (places image on left instead of top) for tiles when list area is wide enough"
+
+thumbnails_settings_heading:
+  type: heading
+  default: ""
+  description:
+    en: "Thumbnails"
 topic_list_thumbnails_topic_lists:
   type: list
   default: latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
   description:
-    en: "The lists that will include thumbnails.  Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile"
+    en: "The lists that will include thumbnails.  Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile"
 topic_list_thumbnails_categories:
   type: list
   list_type: category
@@ -32,91 +53,6 @@ topic_list_thumbnails_tags:
   default: ""
   description:
     en: "The categories that will include thumbnails."
-topic_list_excerpts_topic_lists:
-  type: list
-  default: latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
-  description:
-    en: "The lists that will include excerpts.  Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile"
-topic_list_excerpts_categories:
-  type: list
-  list_type: category
-  default: ""
-  description:
-    en: "The categories that will include excerpts."
-topic_list_excerpts_tags:
-  type: list
-  list_type: tag
-  default: ""
-  description:
-    en: "The tags that will include excerpts."
-topic_list_actions_topic_lists:
-  type: list
-  default: latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
-  description:
-    en: "The lists that will include actions.  Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile"
-topic_list_actions_categories:
-  type: list
-  list_type: category
-  default: ""
-  description:
-    en: "The categories that will include actions."
-topic_list_actions_tags:
-  type: list
-  list_type: tag
-  default: ""
-  description:
-    en: "The tags that will include actions."
-topic_list_set_category_defaults:
-  default: false
-  type: bool
-  description:
-    en: "Set site topic list display settings as defaults for category topic lists."
-topic_list_dominant_color_background:
-  default: tiles only
-  type: enum
-  choices:
-    - never
-    - tiles only
-    - always
-  description:
-    en: "Use dominant color for background of topic list items."
-topic_list_show_like_on_current_users_posts:
-  type: bool
-  default: true
-  description:
-    en: "Show an inactive like button in topic list items previewing a post created by the current user (non-default Discourse behavior)."
-topic_list_tiles_larger_featured_tiles:
-  default: true
-  type: bool
-  description:
-    en: "Make the tiles with featured tags larger"
-topic_list_tiles_wide_format:
-  default: false
-  type: bool
-  description:
-    en: "Use wide format (places image on left instead of top) for tiles when list area is wide enough"
-topic_list_portfolio:
-  default: true
-  type: bool
-  description:
-    en: "Enable additional User Activity view for User Portfolio"
-topic_list_portfolio_icons:
-  default: 'images'
-  description:
-    en: "The icon you wish to use for the Portfolio button and Portfolio label"
-topic_list_portfolio_filter_type:
-  default: "tag"
-  type: "enum"
-  description:
-    en: "Which type of filter should be used to limit Activity Portfolio Topics"
-  choices:
-    - tag
-    - category
-topic_list_portfolio_filter_parameter:
-  default: ""
-  type: string
-  description:
-    en: "Enter the tag or category slug (depending of value of filter type setting)"
 topic_list_default_thumbnail:
   default: ""
   type: string
@@ -155,6 +91,111 @@ topic_list_thumbnail_first_x_rows:
   type: integer
   description:
     en: "Show thumbnail only for first X rows. Enter 0 to show on all rows."
+
+excerpts_settings_heading:
+  type: heading
+  default: ""
+  description:
+    en: "Excerpts"
+topic_list_excerpts_topic_lists:
+  type: list
+  default: latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
+  description:
+    en: "The lists that will include excerpts.  Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile"
+topic_list_excerpts_categories:
+  type: list
+  list_type: category
+  default: ""
+  description:
+    en: "The categories that will include excerpts."
+topic_list_excerpts_tags:
+  type: list
+  list_type: tag
+  default: ""
+  description:
+    en: "The tags that will include excerpts."
+
+actions_settings_heading:
+  type: heading
+  default: ""
+  description:
+    en: "Topic Actions"
+topic_list_actions_topic_lists:
+  type: list
+  default: latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
+  description:
+    en: "The lists that will include actions.  Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile"
+topic_list_actions_categories:
+  type: list
+  list_type: category
+  default: ""
+  description:
+    en: "The categories that will include actions."
+topic_list_actions_tags:
+  type: list
+  list_type: tag
+  default: ""
+  description:
+    en: "The tags that will include actions."
+
+general_settings_heading:
+  type: heading
+  default: ""
+  description:
+    en: "General Display"
+topic_list_set_category_defaults:
+  default: false
+  type: bool
+  description:
+    en: "Set site topic list display settings as defaults for category topic lists."
+topic_list_dominant_color_background:
+  default: tiles only
+  type: enum
+  choices:
+    - never
+    - tiles only
+    - always
+  description:
+    en: "Use dominant color for background of topic list items."
+topic_list_show_like_on_current_users_posts:
+  type: bool
+  default: true
+  description:
+    en: "Show an inactive like button in topic list items previewing a post created by the current user (non-default Discourse behavior)."
+
+portfolio_settings_heading:
+  type: heading
+  default: ""
+  description:
+    en: "User Portfolio"
+topic_list_portfolio:
+  default: true
+  type: bool
+  description:
+    en: "Enable additional User Activity view for User Portfolio"
+topic_list_portfolio_icons:
+  default: 'images'
+  description:
+    en: "The icon you wish to use for the Portfolio button and Portfolio label"
+topic_list_portfolio_filter_type:
+  default: "tag"
+  type: "enum"
+  description:
+    en: "Which type of filter should be used to limit Activity Portfolio Topics"
+  choices:
+    - tag
+    - category
+topic_list_portfolio_filter_parameter:
+  default: ""
+  type: string
+  description:
+    en: "Enter the tag or category slug (depending of value of filter type setting)"
+
+featured_images_settings_heading:
+  type: heading
+  default: ""
+  description:
+    en: "Featured Images"
 topic_list_featured_images:
   default: false
   type: bool
@@ -235,11 +276,12 @@ topic_list_featured_details_always_show:
     - always
   description:
     en: "Always show details in featured image"
-topic_list_test_image_url_timeout:
-  default: 5000
-  type: integer
+
+full_page_search_settings_heading:
+  type: heading
+  default: ""
   description:
-    en: "Timeout for testing image url"
+    en: "Full Page Search"
 topic_list_fps_search_grid:
   default: true
   type: bool
@@ -255,3 +297,14 @@ topic_list_fps_search_author:
   type: bool
   description:
     en: "Enable search author for full page search"
+
+advanced_settings_heading:
+  type: heading
+  default: ""
+  description:
+    en: "Advanced"
+topic_list_test_image_url_timeout:
+  default: 5000
+  type: integer
+  description:
+    en: "Timeout for testing image url"
