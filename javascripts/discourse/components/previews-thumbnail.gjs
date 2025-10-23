@@ -62,7 +62,7 @@ export default class PreviewsThumbnail extends Component {
         href={{this.destinationUrl}}
         class={{concatClass "thumbnail icon-thumbnail" this.isTiles}}
       >
-        <DIcon @icon={{this.thumbnailIcon}} class="tlp-thumbnail-icon" />
+        {{d-icon this.thumbnailIcon class="tlp-thumbnail-icon"}}
       </a>
     {{else if this.previewUrl}}
       <a href={{this.destinationUrl}}>
