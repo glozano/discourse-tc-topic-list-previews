@@ -1,156 +1,155 @@
-tiles_settings_heading:
-  type: heading
-  default: ""
-  description:
-    en: "Tile Layout"
 topic_list_tiles_topic_lists:
   type: list
+  category: "Tile Layout"
   default: latest|new|unread|top|tag|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|activity-topics-mobile|activity-portfolio-mobile
   description:
     en: "The lists that will be styled with tiles format.  Can be one of latest|new|unread|top|tag|suggested|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|activity-topics-mobile|activity-portfolio-mobile"
 topic_list_tiles_categories:
   type: list
+  category: "Tile Layout"
   list_type: category
   default: ""
   description:
     en: "The categories that will be styled with tiles format."
 topic_list_tiles_tags:
   type: list
+  category: "Tile Layout"
   list_type: tag
   default: ""
   description:
     en: "The tags that will be styled with tiles format."
 topic_list_tiles_larger_featured_tiles:
-  default: true
   type: bool
+  category: "Tile Layout"
+  default: true
   description:
     en: "Make the tiles with featured tags larger"
 topic_list_tiles_wide_format:
-  default: false
   type: bool
+  category: "Tile Layout"
+  default: false
   description:
     en: "Use wide format (places image on left instead of top) for tiles when list area is wide enough"
 
-thumbnails_settings_heading:
-  type: heading
-  default: ""
-  description:
-    en: "Thumbnails"
 topic_list_thumbnails_topic_lists:
   type: list
+  category: "Thumbnails"
   default: latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
   description:
     en: "The lists that will include thumbnails.  Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile"
 topic_list_thumbnails_categories:
   type: list
+  category: "Thumbnails"
   list_type: category
   default: ""
   description:
     en: "The categories that will include thumbnails."
 topic_list_thumbnails_tags:
   type: list
+  category: "Thumbnails"
   list_type: tag
   default: ""
   description:
     en: "The categories that will include thumbnails."
 topic_list_default_thumbnail:
-  default: ""
   type: string
+  category: "Thumbnails"
+  default: ""
   description:
     en: "Image URL for default thumbnail if topic thumbnail is inaccessible."
 topic_list_default_thumbnail_fallback:
-  default: false
   type: bool
+  category: "Thumbnails"
+  default: false
   description:
     en: "Use the default thumbnail when a topic has no previewed image."
 topic_list_thumbnail_resolution_level:
+  type: integer
+  category: "Thumbnails"
   default: 3
   max: 6
   min: 0
-  type: integer
   description:
     en: "Resolution level of thumbnail used in the Topic List: 0 is original, 1 is next highest, up to 6 lowest. Actual resolution will depend on number of thumbnails available for any one image. Experiment for best setting for your site, but 2 is recommended for Tiles"
 topic_list_thumbnail_width:
+  category: "Thumbnails"
   default: 150
   description:
     en: "Width of image that can be previewed."
 topic_list_thumbnail_height:
+  category: "Thumbnails"
   default: 100
   description:
     en: "Height of image that can be previewed."
 topic_list_thumbnail_width_mobile:
+  category: "Thumbnails"
   default: 50
   description:
     en: "Width of image that can be previewed on mobile."
 topic_list_thumbnail_height_mobile:
+  category: "Thumbnails"
   default: 60
   description:
     en: "Height of image that can be previewed on mobile."
 topic_list_thumbnail_first_x_rows:
-  default: 0
   type: integer
+  category: "Thumbnails"
+  default: 0
   description:
     en: "Show thumbnail only for first X rows. Enter 0 to show on all rows."
 
-excerpts_settings_heading:
-  type: heading
-  default: ""
-  description:
-    en: "Excerpts"
 topic_list_excerpts_topic_lists:
   type: list
+  category: "Excerpts"
   default: latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
   description:
-    en: "The lists that will include excerpts.  Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile"
+    en: "The lists that will include excerpts.  Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile"
 topic_list_excerpts_categories:
   type: list
+  category: "Excerpts"
   list_type: category
   default: ""
   description:
     en: "The categories that will include excerpts."
 topic_list_excerpts_tags:
   type: list
+  category: "Excerpts"
   list_type: tag
   default: ""
   description:
     en: "The tags that will include excerpts."
 
-actions_settings_heading:
-  type: heading
-  default: ""
-  description:
-    en: "Topic Actions"
 topic_list_actions_topic_lists:
   type: list
+  category: "Topic Actions"
   default: latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
   description:
-    en: "The lists that will include actions.  Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile"
+    en: "The lists that will include actions.  Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile"
 topic_list_actions_categories:
   type: list
+  category: "Topic Actions"
   list_type: category
   default: ""
   description:
     en: "The categories that will include actions."
 topic_list_actions_tags:
   type: list
+  category: "Topic Actions"
   list_type: tag
   default: ""
   description:
     en: "The tags that will include actions."
 
-general_settings_heading:
-  type: heading
-  default: ""
-  description:
-    en: "General Display"
 topic_list_set_category_defaults:
-  default: false
   type: bool
+  category: "General Display"
+  default: false
   description:
     en: "Set site topic list display settings as defaults for category topic lists."
 topic_list_dominant_color_background:
-  default: tiles only
   type: enum
+  category: "General Display"
+  default: tiles only
   choices:
     - never
     - tiles only
@@ -159,83 +158,86 @@ topic_list_dominant_color_background:
     en: "Use dominant color for background of topic list items."
 topic_list_show_like_on_current_users_posts:
   type: bool
+  category: "General Display"
   default: true
   description:
     en: "Show an inactive like button in topic list items previewing a post created by the current user (non-default Discourse behavior)."
 
-portfolio_settings_heading:
-  type: heading
-  default: ""
-  description:
-    en: "User Portfolio"
 topic_list_portfolio:
-  default: true
   type: bool
+  category: "User Portfolio"
+  default: true
   description:
     en: "Enable additional User Activity view for User Portfolio"
 topic_list_portfolio_icons:
+  category: "User Portfolio"
   default: 'images'
   description:
     en: "The icon you wish to use for the Portfolio button and Portfolio label"
 topic_list_portfolio_filter_type:
+  type: enum
+  category: "User Portfolio"
   default: "tag"
-  type: "enum"
-  description:
-    en: "Which type of filter should be used to limit Activity Portfolio Topics"
   choices:
     - tag
     - category
+  description:
+    en: "Which type of filter should be used to limit Activity Portfolio Topics"
 topic_list_portfolio_filter_parameter:
-  default: ""
   type: string
+  category: "User Portfolio"
+  default: ""
   description:
     en: "Enter the tag or category slug (depending of value of filter type setting)"
 
-featured_images_settings_heading:
-  type: heading
-  default: ""
-  description:
-    en: "Featured Images"
 topic_list_featured_images:
-  default: false
   type: bool
+  category: "Featured Images"
+  default: false
   description:
     en: "Enable featured images for non-category routes."
 topic_list_featured_images_resolution_level:
+  type: integer
+  category: "Featured Images"
   default: 2
   max: 6
   min: 0
-  type: integer
   description:
     en: "Resolution level of thumbnail used in Featured Images: 0 is original, 1 is next highest, up to 6 lowest. Actual resolution will depend on number of thumbnails available for any one image. Experiment for best setting for your site."
 topic_list_featured_images_category:
-  default: false
   type: bool
+  category: "Featured Images"
+  default: false
   description:
     en: "Apply featured images site setting to all category discovery routes"
 topic_list_featured_images_from_current_category_only:
-  default: true
   type: bool
+  category: "Featured Images"
+  default: true
   description:
     en: "Show featured images only that exist in current Category"
 topic_list_featured_images_tag:
   type: list
+  category: "Featured Images"
   list_type: tag
   default: ""
   description:
     en: "Featured images tag."
 topic_list_featured_images_tag_show:
-  default: true
   type: bool
+  category: "Featured Images"
+  default: true
   description:
     en: "Show featured images tag below featured images."
 topic_list_featured_images_count:
+  category: "Featured Images"
   default: 0
   description:
     en: "Featured Images Topics set count. Set to zero for no limit. NB If featured Topics don't contain a thumbnail the number of images will be fewer, just raise the number."
 topic_list_featured_images_order:
-  default: latest
   type: enum
+  category: "Featured Images"
+  default: latest
   choices:
     - latest
     - created
@@ -243,33 +245,39 @@ topic_list_featured_images_order:
   description:
     en: "Featured Images order"
 topic_list_featured_width:
-  default: 0
   type: integer
+  category: "Featured Images"
+  default: 0
   description:
     en: "Featured image width.  Setting this to zero will make it responsive to image aspect ratio."
 topic_list_featured_height:
-  default: 250
   type: integer
+  category: "Featured Images"
+  default: 250
   description:
     en: "Featured image height."
 topic_list_featured_height_mobile:
-  default: 150
   type: integer
+  category: "Featured Images"
+  default: 150
   description:
     en: "Featured image height on mobile."
 topic_list_featured_title:
-  default: ""
   type: string
+  category: "Featured Images"
+  default: ""
   description:
     en: "Featured images title. Supports Markdown."
 topic_list_featured_excerpt:
-  default: 100
   type: integer
+  category: "Featured Images"
+  default: 100
   description:
     en: "Include topic excerpt in featured image and determine its length.  Set it to 0 for don't include"
 topic_list_featured_details_always_show:
-  default: only on hover
   type: enum
+  category: "Featured Images"
+  default: only on hover
   choices:
     - only on hover
     - mobile device
@@ -277,34 +285,28 @@ topic_list_featured_details_always_show:
   description:
     en: "Always show details in featured image"
 
-full_page_search_settings_heading:
-  type: heading
-  default: ""
-  description:
-    en: "Full Page Search"
 topic_list_fps_search_grid:
-  default: true
   type: bool
+  category: "Full Page Search"
+  default: true
   description:
     en: "Enable search grid for full page search"
 topic_list_fps_search_blurb:
-  default: true
   type: bool
+  category: "Full Page Search"
+  default: true
   description:
     en: "Enable search blurb for full page search"
 topic_list_fps_search_author:
-  default: true
   type: bool
+  category: "Full Page Search"
+  default: true
   description:
     en: "Enable search author for full page search"
 
-advanced_settings_heading:
-  type: heading
-  default: ""
-  description:
-    en: "Advanced"
 topic_list_test_image_url_timeout:
-  default: 5000
   type: integer
+  category: "Advanced"
+  default: 5000
   description:
     en: "Timeout for testing image url"
