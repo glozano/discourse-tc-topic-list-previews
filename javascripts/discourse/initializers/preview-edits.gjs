@@ -5,7 +5,6 @@ import { resizeAllGridItems } from "../lib/gridupdate";
 import PreviewsDetails from "./../components/previews-details";
 import PreviewsThumbnail from "./../components/previews-thumbnail";
 import PreviewsTilesThumbnail from "./../components/previews-tiles-thumbnail";
-import { iconNode } from "discourse-common/lib/icon-library";
 
 const PLUGIN_ID = "discourse-tc-topic-list-previews";
 
@@ -31,22 +30,6 @@ export default apiInitializer("0.8", (api) => {
     "service:topic-list-previews"
   );
 
-  const replaceShareIcons = () => {
-    document
-      .querySelectorAll(".topic-share .d-icon-link")
-      .forEach((icon) => {
-        const shareButton = icon.closest(".topic-share");
-        if (shareButton?.querySelector(".d-icon-share")) {
-          return;
-        }
-
-        const shareIcon = iconNode("share");
-        if (shareIcon) {
-          icon.replaceWith(shareIcon);
-        }
-      });
-  };
-
   api.onPageChange(() => {
     loadScript(settings.theme_uploads.imagesloaded).then(() => {
       if (document.querySelector(".tiles-style")) {
@@ -57,7 +40,6 @@ export default apiInitializer("0.8", (api) => {
         );
       }
     });
-    replaceShareIcons();
   });
 
   // Keep track of the last "step" of 400 pixels.
@@ -75,8 +57,6 @@ export default apiInitializer("0.8", (api) => {
       resizeAllGridItems();
     }
   });
-
-  api.onAppEvent("topic-list:updated", replaceShareIcons);
 
   api.registerValueTransformer("topic-list-columns", ({ value: columns }) => {
     if (topicListPreviewsService.displayCardLayout) {

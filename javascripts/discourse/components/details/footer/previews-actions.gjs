@@ -183,7 +183,7 @@ export default class PreviewsActionsComponent extends Component {
           title={{i18n "js.topic.share.help"}}
           data-topic_id={{@topic.id}}
           data-topic_post_id={{@topic_post_id}}
-          @icon="link"
+          @icon="share"
         />
         {{#if this.showBookmarkButton}}
           <DButton
