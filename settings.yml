@@ -3,7 +3,9 @@ topic_list_tiles_topic_lists:
   category: "Tile Layout"
   default: latest|new|unread|top|tag|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|activity-topics-mobile|activity-portfolio-mobile
   description:
-    en: "The lists that will be styled with tiles format.  Can be one of latest|new|unread|top|tag|suggested|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|activity-topics-mobile|activity-portfolio-mobile"
+    en: >
+      <div class="desc"><br><br><h2>Tile Layout</h2> Control which lists display the richer tile view.</div>
+      The lists that will be styled with tiles format. Can be one of latest|new|unread|top|tag|suggested|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|activity-topics-mobile|activity-portfolio-mobile
 topic_list_tiles_categories:
   type: list
   category: "Tile Layout"
@@ -36,7 +38,9 @@ topic_list_thumbnails_topic_lists:
   category: "Thumbnails"
   default: latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
   description:
-    en: "The lists that will include thumbnails.  Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile"
+    en: >
+      <div class="desc"><br><br><h2>Thumbnails</h2> Manage default images and sizing for list previews.</div>
+      The lists that will include thumbnails. Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
 topic_list_thumbnails_categories:
   type: list
   category: "Thumbnails"
@@ -103,7 +107,9 @@ topic_list_excerpts_topic_lists:
   category: "Excerpts"
   default: latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
   description:
-    en: "The lists that will include excerpts.  Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile"
+    en: >
+      <div class="desc"><br><br><h2>Excerpts</h2> Decide where topic list previews include body text.</div>
+      The lists that will include excerpts. Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
 topic_list_excerpts_categories:
   type: list
   category: "Excerpts"
@@ -124,7 +130,9 @@ topic_list_actions_topic_lists:
   category: "Topic Actions"
   default: latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
   description:
-    en: "The lists that will include actions.  Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile"
+    en: >
+      <div class="desc"><br><br><h2>Topic Actions</h2> Toggle where quick actions appear in list previews.</div>
+      The lists that will include actions. Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
 topic_list_actions_categories:
   type: list
   category: "Topic Actions"
@@ -145,7 +153,9 @@ topic_list_set_category_defaults:
   category: "General Display"
   default: false
   description:
-    en: "Set site topic list display settings as defaults for category topic lists."
+    en: >
+      <div class="desc"><br><br><h2>General Display</h2> Site-wide behaviours affecting every topic list.</div>
+      Set site topic list display settings as defaults for category topic lists.
 topic_list_dominant_color_background:
   type: enum
   category: "General Display"
@@ -168,7 +178,9 @@ topic_list_portfolio:
   category: "User Portfolio"
   default: true
   description:
-    en: "Enable additional User Activity view for User Portfolio"
+    en: >
+      <div class="desc"><br><br><h2>User Portfolio</h2> Configure the optional portfolio activity view.</div>
+      Enable additional User Activity view for User Portfolio
 topic_list_portfolio_icons:
   category: "User Portfolio"
   default: 'images'
@@ -195,7 +207,9 @@ topic_list_featured_images:
   category: "Featured Images"
   default: false
   description:
-    en: "Enable featured images for non-category routes."
+    en: >
+      <div class="desc"><br><br><h2>Featured Images</h2> Manage the hero-style featured topics banner.</div>
+      Enable featured images for non-category routes.
 topic_list_featured_images_resolution_level:
   type: integer
   category: "Featured Images"
@@ -290,7 +304,9 @@ topic_list_fps_search_grid:
   category: "Full Page Search"
   default: true
   description:
-    en: "Enable search grid for full page search"
+    en: >
+      <div class="desc"><br><br><h2>Full Page Search</h2> Customise the search results layout enhancements.</div>
+      Enable search grid for full page search
 topic_list_fps_search_blurb:
   type: bool
   category: "Full Page Search"
@@ -309,4 +325,6 @@ topic_list_test_image_url_timeout:
   category: "Advanced"
   default: 5000
   description:
-    en: "Timeout for testing image url"
+    en: >
+      <div class="desc"><br><br><h2>Advanced</h2> Low-level tuning for edge cases and debugging.</div>
+      Timeout for testing image url
