@@ -40,6 +40,14 @@ export default class PreviewsThumbnail extends Component {
     return this.args.tiles ? "tiles-thumbnail" : "non-tiles-thumbnail";
   }
 
+  get thumbnailIcon() {
+    return (settings.topic_list_thumbnail_icon || "").trim();
+  }
+
+  get useIconThumbnail() {
+    return this.thumbnailIcon.length > 0;
+  }
+
   get destinationUrl() {
     if (this.args.topic.force_latest_post_nav && this.args.topic.last_post_id) {
       return `/t/${this.args.topic.slug}/${this.args.topic.id}/${this.args.topic.last_post_id}`;
@@ -49,7 +57,14 @@ export default class PreviewsThumbnail extends Component {
   }
 
   <template>
-    {{#if this.previewUrl}}
+    {{#if this.useIconThumbnail}}
+      <a
+        href={{this.destinationUrl}}
+        class={{concatClass "thumbnail icon-thumbnail" this.isTiles}}
+      >
+        <DIcon @icon={{this.thumbnailIcon}} class="tlp-thumbnail-icon" />
+      </a>
+    {{else if this.previewUrl}}
       <a href={{this.destinationUrl}}>
         <img
           class={{concatClass "thumbnail" this.isTiles}}

@@ -61,6 +61,12 @@ topic_list_grid_image_height:
   default: 200
   description:
     en: "Height for grid layout preview images (pixels)."
+topic_list_grid_card_background:
+  type: string
+  category: "Grid Layout"
+  default: "#1a1f19"
+  description:
+    en: "Background color for grid layout cards. Accepts any valid CSS color."
 
 topic_list_thumbnails_topic_lists:
   type: list
@@ -130,6 +136,12 @@ topic_list_thumbnail_first_x_rows:
   default: 0
   description:
     en: "Show thumbnail only for first X rows. Enter 0 to show on all rows."
+topic_list_thumbnail_icon:
+  type: string
+  category: "Thumbnails"
+  default: ""
+  description:
+    en: "Icon name to render instead of thumbnail images (e.g. seedling). Leave blank to keep images."
 
 topic_list_excerpts_topic_lists:
   type: list

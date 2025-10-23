@@ -175,6 +175,21 @@ img.non-tiles-thumbnail {
     }
   }
 
+  .topic-thumbnail .icon-thumbnail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 140px;
+    text-decoration: none;
+  }
+
+  .topic-thumbnail .icon-thumbnail .tlp-thumbnail-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
   .thumbnail {
     .no-thumbnail {
       display: none;
@@ -461,11 +476,28 @@ img.non-tiles-thumbnail {
 
   .topic-list-item {
     min-height: 100%;
+    background-color: var(--tlp-grid-card-background, #1a1f19);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .topic-title {
+    font-weight: 700;
+  }
+
+  .topic-thumbnail {
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
   }
 
   .topic-thumbnail img {
     height: var(--tlp-grid-image-height, 200px);
     object-fit: cover;
+  }
+
+  .topic-thumbnail .icon-thumbnail {
+    background-color: var(--tlp-grid-card-background, #1a1f19);
+    height: var(--tlp-grid-image-height, 200px);
   }
 }
 

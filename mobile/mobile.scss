@@ -40,6 +40,25 @@ td .main-link {
   padding-right: 0.67em;
 }
 
+.topic-list.grid-style .topic-list-item {
+  border-radius: 8px;
+  background-color: var(--tlp-grid-card-background, #1a1f19);
+  overflow: hidden;
+}
+
+.topic-list.grid-style .topic-thumbnail {
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.topic-list.grid-style .topic-thumbnail .icon-thumbnail {
+  background-color: var(--tlp-grid-card-background, #1a1f19);
+}
+
+.topic-list.grid-style .topic-title {
+  font-weight: 700;
+}
+
 .tlp-featured-topics.has-topics {
   .topics {
     .tlp-featured-topic {

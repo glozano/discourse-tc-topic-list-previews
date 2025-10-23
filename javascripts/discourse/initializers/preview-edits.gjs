@@ -5,8 +5,17 @@ import { resizeAllGridItems } from "../lib/gridupdate";
 import PreviewsDetails from "./../components/previews-details";
 import PreviewsThumbnail from "./../components/previews-thumbnail";
 import PreviewsTilesThumbnail from "./../components/previews-tiles-thumbnail";
+import { iconNode } from "discourse-common/lib/icon-library";
 
 const PLUGIN_ID = "discourse-tc-topic-list-previews";
+
+const sanitizeCssValue = (value, fallback) => {
+  if (!value) {
+    return fallback;
+  }
+  const sanitized = value.replace(/[^#%(),.\/\w\s-]/g, "");
+  return sanitized.trim() || fallback;
+};
 
 const previewsTilesThumbnail = <template>
   <PreviewsTilesThumbnail @topic={{@topic}} />
@@ -80,11 +89,15 @@ export default apiInitializer("0.8", (api) => {
       if (topicListPreviewsService.displayCardLayout) {
         value.push("card-layout");
       }
+      const configuredIcon =
+        (settings.topic_list_thumbnail_icon || "").trim().length > 0;
+
       if (
         topicListPreviewsService.displayThumbnails &&
         (context.topic.thumbnails?.length > 0 ||
           (settings.topic_list_default_thumbnail_fallback &&
-            settings.topic_list_default_thumbnail !== ""))
+            settings.topic_list_default_thumbnail !== "") ||
+          configuredIcon)
       ) {
         value.push("has-thumbnail");
       }
@@ -158,6 +171,11 @@ export default apiInitializer("0.8", (api) => {
             `--tlp-grid-image-height: ${settings.topic_list_grid_image_height}px;`
           )
         );
+        const background = sanitizeCssValue(
+          settings.topic_list_grid_card_background,
+          "#1a1f19"
+        );
+        value.push(htmlSafe(`--tlp-grid-card-background: ${background};`));
       }
       return value;
     }
@@ -241,5 +259,21 @@ export default apiInitializer("0.8", (api) => {
     thumbnailGrid() {
       return siteSettings.topic_list_search_previews_enabled;
     },
+  });
+
+  api.decorateTopicListItem((element) => {
+    element
+      .querySelectorAll(".topic-share .d-icon-link")
+      .forEach((icon) => {
+        const shareButton = icon.closest(".topic-share");
+        if (shareButton?.querySelector(".d-icon-share")) {
+          return;
+        }
+
+        const shareIcon = iconNode("share");
+        if (shareIcon) {
+          icon.replaceWith(shareIcon);
+        }
+      });
   });
 });
