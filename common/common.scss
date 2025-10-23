@@ -114,7 +114,8 @@ img.non-tiles-thumbnail {
 }
 
 // tiles specific styling
-.contents.has-more > .topic-list.tiles-style tbody {
+.contents.has-more > .topic-list.tiles-style tbody,
+.contents.has-more > .topic-list.grid-style tbody {
   margin-top: 60px;
 }
 
@@ -123,24 +124,13 @@ img.non-tiles-thumbnail {
   container-name: list-area;
 }
 
-.tiles-style {
+.card-layout {
   th {
     display: none;
   }
 
   .topic-statuses svg.d-icon-bookmark {
     display: none;
-  }
-
-  tbody {
-    .topic-list-item-separator {
-      display: none;
-    }
-    display: grid;
-    gap: 4px;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    grid-auto-rows: 4px;
-    border-top: none;
   }
 
   .topic-list-item,
@@ -152,18 +142,10 @@ img.non-tiles-thumbnail {
     padding-left: 0;
   }
 
-  .tiles-grid-item-width2 {
-    box-sizing: border-box;
-    cursor: pointer;
-    border-radius: 3px;
-    grid-column-end: span 2;
-  }
-
   .topic-list-item {
     box-sizing: border-box;
     cursor: pointer;
     border-radius: 3px;
-    grid-row-end: span 44;
     display: flex;
     flex-direction: column;
 
@@ -190,18 +172,9 @@ img.non-tiles-thumbnail {
 
     img {
       width: 100%;
-      height: auto;
     }
   }
 
-  // TODO add this back when mask functionality is added
-  // .image-mask {
-  //   position: relative;
-  //   margin-bottom: -200px;
-  //   height: 100%;
-  //   width: 100%;
-  //   z-index: 1;
-  // }
   .thumbnail {
     .no-thumbnail {
       display: none;
@@ -443,6 +416,56 @@ img.non-tiles-thumbnail {
         }
       }
     }
+  }
+}
+
+.tiles-style {
+  tbody {
+    .topic-list-item-separator {
+      display: none;
+    }
+    display: grid;
+    gap: 4px;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-auto-rows: 4px;
+    border-top: none;
+  }
+
+  .tiles-grid-item-width2 {
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 3px;
+    grid-column-end: span 2;
+  }
+
+  .topic-list-item {
+    grid-row-end: span 44;
+  }
+
+  .topic-thumbnail img {
+    height: auto;
+  }
+}
+
+.grid-style {
+  tbody {
+    .topic-list-item-separator {
+      display: none;
+    }
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-auto-rows: auto;
+    border-top: none;
+  }
+
+  .topic-list-item {
+    min-height: 100%;
+  }
+
+  .topic-thumbnail img {
+    height: var(--tlp-grid-image-height, 200px);
+    object-fit: cover;
   }
 }
 

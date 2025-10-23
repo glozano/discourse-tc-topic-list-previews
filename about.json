@@ -1,8 +1,8 @@
 {
-    "name": "Topic List Previews",
+    "name": "GWJ Topic List Previews",
     "about_url": "",
     "component": true,
-    "authors": "Robert Barrow, Angus Mcleod",
+    "authors": "Robert Barrow, Angus Mcleod, Grow with Jane",
     "modifiers": {
       "csp_extensions": ["script_src: https://unpkg.com"],
       "svg_icons": ["images"],

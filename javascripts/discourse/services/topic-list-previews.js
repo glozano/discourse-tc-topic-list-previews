@@ -6,6 +6,9 @@ import Site from "discourse/models/site";
 const thumbnailsTopicLists =
   settings.topic_list_thumbnails_topic_lists.split("|");
 const tilesTopicLists = settings.topic_list_tiles_topic_lists.split("|");
+const gridTopicLists = settings.topic_list_grid_topic_lists
+  .split("|")
+  .filter((item) => item.length);
 const excerptsTopicLists = settings.topic_list_excerpts_topic_lists.split("|");
 const actionsTopicLists = settings.topic_list_actions_topic_lists.split("|");
 
@@ -15,6 +18,11 @@ const thumbnailCategories = settings.topic_list_thumbnails_categories
 
 const tilesCategories = settings.topic_list_tiles_categories
   .split("|")
+  .map((id) => parseInt(id, 10));
+
+const gridCategories = settings.topic_list_grid_categories
+  .split("|")
+  .filter((id) => id.length)
   .map((id) => parseInt(id, 10));
 
 const excerptCategories = settings.topic_list_excerpts_categories
@@ -28,6 +36,7 @@ const actionCategories = settings.topic_list_actions_categories
 const thumbnailTags = settings.topic_list_thumbnails_tags.split("|");
 const excerptTags = settings.topic_list_excerpts_tags.split("|");
 const tilesTags = settings.topic_list_tiles_tags.split("|");
+const gridTags = settings.topic_list_grid_tags.split("|").filter((tag) => tag.length);
 const actionTags = settings.topic_list_actions_tags.split("|");
 
 export default class TopicListPreviewsService extends Service {
@@ -67,6 +76,9 @@ export default class TopicListPreviewsService extends Service {
         break;
       case "tiles":
         checkList = tilesTopicLists;
+        break;
+      case "grid":
+        checkList = gridTopicLists;
         break;
       case "excerpts":
         checkList = excerptsTopicLists;
@@ -151,6 +163,13 @@ export default class TopicListPreviewsService extends Service {
       displayMode.push("tiles");
     }
     if (
+      gridCategories.includes(this.viewingCategoryId) ||
+      gridTags.includes(this.viewingTagId) ||
+      this.enabledForCurrentTopicListRouteType("grid")
+    ) {
+      displayMode.push("grid");
+    }
+    if (
       excerptCategories.includes(this.viewingCategoryId) ||
       excerptTags.includes(this.viewingTagId) ||
       this.enabledForCurrentTopicListRouteType("excerpts")
@@ -163,6 +182,13 @@ export default class TopicListPreviewsService extends Service {
       this.enabledForCurrentTopicListRouteType("actions")
     ) {
       displayMode.push("actions");
+    }
+
+    if (
+      displayMode.includes("grid") &&
+      displayMode.includes("tiles")
+    ) {
+      displayMode = displayMode.filter((mode) => mode !== "tiles");
     }
 
     return displayMode;
@@ -181,6 +207,16 @@ export default class TopicListPreviewsService extends Service {
   @computed("enabledForRoute", "displayMode")
   get displayTiles() {
     return this.enabledForRoute && this.displayMode.includes("tiles");
+  }
+
+  @computed("enabledForRoute", "displayMode")
+  get displayGrid() {
+    return this.enabledForRoute && this.displayMode.includes("grid");
+  }
+
+  @computed("displayTiles", "displayGrid")
+  get displayCardLayout() {
+    return this.displayTiles || this.displayGrid;
   }
 
   @computed("enabledForRoute", "displayMode")

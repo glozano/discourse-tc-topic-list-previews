@@ -51,7 +51,7 @@ export default apiInitializer("0.8", (api) => {
   });
 
   api.registerValueTransformer("topic-list-columns", ({ value: columns }) => {
-    if (topicListPreviewsService.displayTiles) {
+    if (topicListPreviewsService.displayCardLayout) {
       columns.delete("activity");
       columns.delete("replies");
       columns.delete("views");
@@ -60,9 +60,8 @@ export default apiInitializer("0.8", (api) => {
     }
     return columns;
   });
-
   api.registerValueTransformer("topic-list-item-mobile-layout", ({ value }) => {
-    if (topicListPreviewsService.displayTiles) {
+    if (topicListPreviewsService.displayCardLayout) {
       // Force the desktop layout
       return false;
     }
@@ -74,6 +73,12 @@ export default apiInitializer("0.8", (api) => {
     ({ value, context }) => {
       if (topicListPreviewsService.displayTiles) {
         value.push("tiles-style");
+      }
+      if (topicListPreviewsService.displayGrid) {
+        value.push("grid-style");
+      }
+      if (topicListPreviewsService.displayCardLayout) {
+        value.push("card-layout");
       }
       if (
         topicListPreviewsService.displayThumbnails &&
@@ -100,13 +105,14 @@ export default apiInitializer("0.8", (api) => {
           ? (red + green + blue) / 3
           : null;
 
+        const cardBackgroundEnabled =
+          settings.topic_list_dominant_color_background === "always" ||
+          (topicListPreviewsService.displayCardLayout &&
+            settings.topic_list_dominant_color_background === "tiles only");
+
         if (
           Object.keys(context.topic?.dominant_colour).length === 0 ||
-          !(
-            settings.topic_list_dominant_color_background === "always" ||
-            (topicListPreviewsService.displayTiles &&
-              settings.topic_list_dominant_color_background === "tiles only")
-          )
+          !cardBackgroundEnabled
         ) {
           value.push("no-background-colour");
         } else if (averageIntensity > 127) {
@@ -129,7 +135,7 @@ export default apiInitializer("0.8", (api) => {
         siteSettings.topic_list_enable_thumbnail_colour_determination &&
         topicListPreviewsService.displayThumbnails &&
         (settings.topic_list_dominant_color_background === "always" ||
-          (topicListPreviewsService.displayTiles &&
+          (topicListPreviewsService.displayCardLayout &&
             settings.topic_list_dominant_color_background === "tiles only")) &&
         Object.keys(context.topic?.dominant_colour).length !== 0
       ) {
@@ -146,13 +152,24 @@ export default apiInitializer("0.8", (api) => {
 
         value.push(htmlSafe(`background: ${newRgb};`));
       }
+      if (topicListPreviewsService.displayGrid) {
+        value.push(
+          htmlSafe(
+            `--tlp-grid-image-height: ${settings.topic_list_grid_image_height}px;`
+          )
+        );
+      }
       return value;
     }
   );
 
   api.registerValueTransformer("topic-list-class", ({ value }) => {
-    if (topicListPreviewsService.displayTiles) {
+    if (topicListPreviewsService.displayGrid) {
+      value.push("grid-style");
+      value.push("card-layout");
+    } else if (topicListPreviewsService.displayTiles) {
       value.push("tiles-style");
+      value.push("card-layout");
       if (settings.topic_list_tiles_wide_format) {
         value.push("side-by-side");
       }
@@ -164,18 +181,23 @@ export default apiInitializer("0.8", (api) => {
     "topic-list-before-link",
     <template>
       {{#unless topicListPreviewsService.displayTiles}}
-        {{#if topicListPreviewsService.displayThumbnails}}
-          <div class="topic-thumbnail">
-            <PreviewsThumbnail @tiles={{false}} @topic={{@outletArgs.topic}} />
-          </div>
-        {{/if}}
+        {{#unless topicListPreviewsService.displayGrid}}
+          {{#if topicListPreviewsService.displayThumbnails}}
+            <div class="topic-thumbnail">
+              <PreviewsThumbnail
+                @tiles={{false}}
+                @topic={{@outletArgs.topic}}
+              />
+            </div>
+          {{/if}}
+        {{/unless}}
       {{/unless}}
     </template>
   );
 
   api.registerValueTransformer("topic-list-item-expand-pinned", ({ value }) => {
     if (
-      !topicListPreviewsService.displayTiles &&
+      !topicListPreviewsService.displayCardLayout &&
       topicListPreviewsService.displayExcerpts
     ) {
       return true;
@@ -184,17 +206,16 @@ export default apiInitializer("0.8", (api) => {
   });
 
   api.registerValueTransformer("topic-list-columns", ({ value: columns }) => {
-    if (
-      topicListPreviewsService.displayTiles &&
-      topicListPreviewsService.displayThumbnails
-    ) {
+    const cardLayoutActive = topicListPreviewsService.displayCardLayout;
+
+    if (cardLayoutActive && topicListPreviewsService.displayThumbnails) {
       columns.add(
         "previews-thumbnail",
         { item: previewsTilesThumbnail },
         { before: "topic" }
       );
     }
-    if (topicListPreviewsService.displayTiles) {
+    if (cardLayoutActive) {
       columns.add(
         "previews-details",
         { item: previewsDetails },

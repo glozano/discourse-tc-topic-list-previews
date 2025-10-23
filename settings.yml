@@ -33,6 +33,35 @@ topic_list_tiles_wide_format:
   description:
     en: "Use wide format (places image on left instead of top) for tiles when list area is wide enough"
 
+topic_list_grid_topic_lists:
+  type: list
+  category: "Grid Layout"
+  default: ""
+  description:
+    en: >
+      <div class="desc"><br><br><h2>Grid Layout</h2> Enable the uniform grid card view without Masonry.</div>
+      The lists that will be styled with the grid layout. Can be one of latest|new|unread|top|tag|suggested|agenda|activity-topics|activity-portfolio|latest-mobile|new-mobile|unread-mobile|top-mobile|tag-mobile|suggested-mobile|agenda-mobile|activity-topics-mobile|activity-portfolio-mobile
+topic_list_grid_categories:
+  type: list
+  category: "Grid Layout"
+  list_type: category
+  default: ""
+  description:
+    en: "The categories that will be styled with the grid layout."
+topic_list_grid_tags:
+  type: list
+  category: "Grid Layout"
+  list_type: tag
+  default: ""
+  description:
+    en: "The tags that will be styled with the grid layout."
+topic_list_grid_image_height:
+  type: integer
+  category: "Grid Layout"
+  default: 200
+  description:
+    en: "Height for grid layout preview images (pixels)."
+
 topic_list_thumbnails_topic_lists:
   type: list
   category: "Thumbnails"

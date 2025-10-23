@@ -21,12 +21,12 @@ td .main-link {
   width: 68%;
 }
 
-.topic-list:not(.tiles-style) .topic-list-item td {
+.topic-list:not(.tiles-style):not(.grid-style) .topic-list-item td {
   padding: 6px;
 }
 
-// tiles styling  specific styling
-.topic-list.tiles-style .num.posts-map {
+// tiles styling specific styling
+.topic-list.card-layout .num.posts-map {
   font-size: 12px;
 }
 
@@ -35,7 +35,7 @@ td .main-link {
   width: 95%;
 }
 
-.topic-list.tiles-style .topic-list-data {
+.topic-list.card-layout .topic-list-data {
   max-width: 100%;
   padding-right: 0.67em;
 }
