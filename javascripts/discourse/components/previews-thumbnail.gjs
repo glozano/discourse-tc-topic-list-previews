@@ -1,6 +1,7 @@
 import Component from "@glimmer/component";
 import { service } from "@ember/service";
 import concatClass from "discourse/helpers/concat-class";
+import icon from "discourse/helpers/d-icon";
 
 export default class PreviewsThumbnail extends Component {
   @service currentUser;
@@ -62,7 +63,7 @@ export default class PreviewsThumbnail extends Component {
         href={{this.destinationUrl}}
         class={{concatClass "thumbnail icon-thumbnail" this.isTiles}}
       >
-        {{d-icon this.thumbnailIcon class="tlp-thumbnail-icon"}}
+        {{icon this.thumbnailIcon class="tlp-thumbnail-icon"}}
       </a>
     {{else if this.previewUrl}}
       <a href={{this.destinationUrl}}>
